@@ -1,38 +1,80 @@
 <template>
   <div>
-    <v-img
-      eager
-      height="auto"
-      min-height="100vh"
-      src="/herobg-min.jpg"
-      style="position:relative;"
-    >
-      <v-container>
-        <v-row>
-          <v-col cols="12" md="12" class="text-center mx-auto">
-            <div
-              class="hero-title text-h2 font-weight-bold white--text mt-16 pt-16"
-            >
-              Find a home <br />
-              where you can relax
-            </div>
-            <div class="hero-desc mt-6 white--text">
-              Search house for rent. Get Results from 6 Engines at Once.
-              Information 24/7.
-              <br />
-              Web,Images & Video. Trusted by Millions.
-            </div>
-            <div>
-              <v-text-field solo placeholder="Search..." class="rounded-0 mt-6 mx-auto" color="white" style="width:100px;"></v-text-field>
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-img>
-    <v-container class="my-16">
+    <div style="position:relative;">
+      <v-img eager src="/herobg-min.jpg" style="max-height:calc(100vh - 100px)">
+        <v-container>
+          <v-row>
+            <v-col cols="12" md="12" class="text-center mx-auto">
+              <div
+                class="hero-title text-h2 font-weight-bold white--text mt-16 pt-16"
+              >
+                Find a home <br />
+                where you can relax
+              </div>
+              <div class="hero-desc mt-6 white--text">
+                Search house for rent. Get Results from 6 Engines at Once.
+                Information 24/7.
+                <br />
+                Web,Images & Video. Trusted by Millions.
+              </div>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-img>
+      <v-card
+        elevation="2"
+        class="mt-6 d-flex justify-center align-center white rounded-lg px-10 py-4"
+        style="position:absolute;bottom:-50px;width:max-content;left:0;right:0;margin-left:auto;margin-right:auto;"
+      >
+        <div class="text-left">
+          <span class="text-h6 mr-2"
+            >Location
+            <v-icon class="black--text">keyboard_arrow_down</v-icon>
+          </span>
+          <br />
+          <span class="grey--text mt-2">
+            Florida
+          </span>
+        </div>
+        <v-divider vertical inset class="mx-4"></v-divider>
+        <div class="text-left">
+          <span class="text-h6 mr-2"
+            >Property Type
+            <v-icon class="black--text">keyboard_arrow_down</v-icon>
+          </span>
+          <br />
+          <span class="grey--text mt-2">
+            Duplex
+          </span>
+        </div>
+        <v-divider vertical inset class="mx-4"></v-divider>
+        <div class="text-left">
+          <span class="text-h6 mr-2"
+            >Max budget
+            <v-icon class="black--text">keyboard_arrow_down</v-icon>
+          </span>
+          <br />
+          <span class="grey--text mt-2">
+            $2500
+          </span>
+        </div>
+        <span class="mr-4"></span>
+        <v-btn
+          icon
+          style="background-color:#263238"
+          x-large
+          class="rounded-lg ma-0 pa-0"
+          width="70"
+          height="70"
+        >
+          <v-icon class="white--text">fal fa-search</v-icon>
+        </v-btn>
+      </v-card>
+    </div>
+    <v-container class="my-16 py-16">
       <v-row>
         <v-col cols="12" md="12">
-          <div class="text-h3 font-weight-bold text-center">
+          <div class="text-h3 font-weight-bold text-center mb-5">
             Advantages of Reno
           </div>
         </v-col>
@@ -41,7 +83,7 @@
             <v-card
               height="300"
               class="rounded-lg d-flex align-center"
-              :elevation="hover ? '12' : '0'"
+              :elevation="hover ? '5' : '0'"
             >
               <div>
                 <v-card-title class="d-flex justify-center">
@@ -98,7 +140,7 @@
                 class="accent"
                 style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:100px;"
               ></div>
-              <v-img class="rounded-xl" eager src="/hide.jpg"></v-img>
+              <v-img eager class="rounded-lg" src="/hide.jpg"></v-img>
             </div>
           </v-col>
         </v-row>
@@ -119,7 +161,7 @@
           <div class="text-center text-h3 font-weight-bold">
             How Reno works
           </div>
-          <div class="text-center my-10" style="font-size:20px;">
+          <div class="text-center mt-5 mb-10" style="font-size:20px;">
             Properties To rent. Find rental property listed<br />
             directly from private landlords and letting agents<br />
             from all over.
@@ -141,7 +183,12 @@
         </v-col>
         <v-col cols="12" md="8">
           <div style="position:relative;">
-            <v-img class="rounded-lg" height="500" src="/email.jpg"></v-img>
+            <v-img
+              eager
+              class="rounded-lg"
+              height="500"
+              src="/email.jpg"
+            ></v-img>
             <div
               style="position:absolute;background-color:#222E3C;font-sizbottom:0px;"
             ></div>
@@ -163,6 +210,7 @@
           <v-col cols="12" md="6" class="d-flex">
             <v-spacer></v-spacer>
             <v-img
+              eager
               class="rounded-lg"
               height="500"
               width="300"
@@ -240,7 +288,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container class="pt-16">
+    <v-container class="mt-16">
       <v-img
         eager
         height="200"
@@ -260,7 +308,12 @@
             </v-col>
             <v-col cols="12" md="6" class="d-flex align-center justify-center">
               <div class="email">
-                <input type="text" name="email" id="emailaddress" />
+                <input
+                  type="text"
+                  name="email"
+                  id="emailaddress"
+                  placeholder="Email address"
+                />
                 <button>Send</button>
               </div>
             </v-col>

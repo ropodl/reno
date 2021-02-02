@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" md="4" class="footer-info">
           <div class="font-weight-bold text-h4" style="color:#222E3C">Reno</div>
-          <div class="my-6 font-weight-bold">
+          <div class="my-6">
             Properties To rent. Find rental property listed directly from
             proivate landlords and letting agents from all over.
           </div>
