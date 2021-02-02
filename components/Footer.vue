@@ -150,7 +150,7 @@ div.footer-list {
     li {
       line-height: 2em;
       a {
-        font-weight: bold;
+        // font-weight: bolder;
         text-decoration: none;
         color: #222e3c;
         &:hover {

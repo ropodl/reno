@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-img eager max-height="100vh" min-height="100vh" src="/herobg-min.jpg">
+    <v-img
+      eager
+      height="auto"
+      min-height="100vh"
+      src="/herobg-min.jpg"
+      style="position:relative;"
+    >
       <v-container>
         <v-row>
           <v-col cols="12" md="12" class="text-center mx-auto">
@@ -15,6 +21,9 @@
               Information 24/7.
               <br />
               Web,Images & Video. Trusted by Millions.
+            </div>
+            <div>
+              <v-text-field solo placeholder="Search..." class="rounded-0 mt-6 mx-auto" color="white" style="width:100px;"></v-text-field>
             </div>
           </v-col>
         </v-row>
@@ -31,7 +40,7 @@
           <v-hover v-slot="{ hover }">
             <v-card
               height="300"
-              class="rounded-xl d-flex align-center"
+              class="rounded-lg d-flex align-center"
               :elevation="hover ? '12' : '0'"
             >
               <div>
@@ -52,36 +61,6 @@
               </div>
             </v-card>
           </v-hover>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-container class="my-16 pb-16">
-      <v-row>
-        <v-col cols="12" md="12" class="d-flex mx-auto">
-          <v-card flat class="rounded-0 ma-0 pa-0">
-            <v-img
-              eager
-              height="500"
-              class="d-flex align-center justify-center"
-              src="/email-min.jpg"
-            >
-              <v-btn
-                icon
-                color="white"
-                x-large
-                class="d-flex mx-auto"
-                style="background-color:white;box-shadow: 0px 0px 0px 15px #ffffffaa;"
-              >
-                <v-icon color="black" small>fas fa-play</v-icon>
-              </v-btn>
-            </v-img>
-            <div
-              class="white--text font-weight-light"
-              style="line-height:1.3em;padding:100px 100px;display:flex;align-items:center;position:absolute;bottom:-50px;right:-50px;font-size:40px;background-color:#222E3C;"
-            >
-              Explore all <br />your needs at <br />a glance
-            </div>
-          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -149,8 +128,15 @@
       </v-row>
       <v-row>
         <v-col cols="12" md="4">
-          <ul>
-            <li>Search</li>
+          <ul class="how-work">
+            <li
+              class="font-weight-black"
+              v-for="(how, i) in hows"
+              :key="how.id"
+            >
+              <span>{{ i + 1 }}</span
+              >{{ how.title }}
+            </li>
           </ul>
         </v-col>
         <v-col cols="12" md="8">
@@ -177,7 +163,7 @@
           <v-col cols="12" md="6" class="d-flex">
             <v-spacer></v-spacer>
             <v-img
-              class="rounded-xl"
+              class="rounded-lg"
               height="500"
               width="300"
               src="https://image.freepik.com/free-photo/smiling-young-man-standing-holding-tablet-computer_1262-18710.jpg"
@@ -224,30 +210,62 @@
         </v-row>
       </v-container>
     </div>
+    <v-container class="my-10">
+      <v-row>
+        <v-col cols="12" md="12" class="d-flex mx-auto">
+          <v-card flat class="rounded-0 ma-0 pa-0">
+            <v-img
+              eager
+              height="500"
+              class="rounded-lg d-flex align-center justify-center"
+              src="/email-min.jpg"
+            >
+              <v-btn
+                icon
+                color="white"
+                x-large
+                class="d-flex mx-auto"
+                style="background-color:white;box-shadow: 0px 0px 0px 15px #ffffffaa;"
+              >
+                <v-icon color="black" small>fas fa-play</v-icon>
+              </v-btn>
+            </v-img>
+            <div
+              class="white--text font-weight-light"
+              style="line-height:1.3em;padding:100px 100px;display:flex;align-items:center;position:absolute;bottom:-50px;right:-50px;font-size:40px;background-color:#222E3C;"
+            >
+              Explore all <br />your needs at <br />a glance
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
     <v-container class="pt-16">
       <v-img
         eager
         height="200"
-        class="rounded-xl d-flex align-center justify-center"
+        class="rounded-lg d-flex align-center justify-center"
         src="/email-min.jpg"
       >
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-            class="mx-10 d-flex mx-auto text-h3 font-weight-black"
-          >
-            <div class="mx-auto" style="width:450px;">
-              Ready to find your new place ?
-            </div>
-          </v-col>
-          <v-col cols="12" md="6" class="d-flex justify-center">
-            <div class="email">
-              <input type="text" name="email" id="emailaddress" />
-              <button>Send</button>
-            </div>
-          </v-col>
-        </v-row>
+        <v-overlay absolute>
+          <v-row>
+            <v-col
+              cols="12"
+              md="6"
+              class="mx-10 d-flex mx-auto text-h3 font-weight-black"
+            >
+              <div class="white--text" style="width:450px;">
+                Ready to find your new place ?
+              </div>
+            </v-col>
+            <v-col cols="12" md="6" class="d-flex align-center justify-center">
+              <div class="email">
+                <input type="text" name="email" id="emailaddress" />
+                <button>Send</button>
+              </div>
+            </v-col>
+          </v-row>
+        </v-overlay>
       </v-img>
     </v-container>
   </div>
@@ -258,6 +276,24 @@ export default {
   data() {
     return {
       rating: "5",
+      hows: [
+        {
+          id: "0",
+          title: "Search"
+        },
+        {
+          id: "1",
+          title: "Choose"
+        },
+        {
+          id: "2",
+          title: "Contact"
+        },
+        {
+          id: "3",
+          title: "Book"
+        }
+      ],
       advantage: [
         {
           id: "1",
@@ -286,23 +322,48 @@ export default {
 };
 </script>
 <style lang="scss">
+ul.how-work {
+  list-style: none;
+  padding: 0px;
+  li {
+    font-size: 30px;
+    line-height: 3em;
+    span {
+      color: white;
+      background-color: #222e3c;
+      padding: 10px 20px;
+      border-radius: 100%;
+      margin-right: 20px;
+    }
+  }
+}
 div.hero-desc {
   font-family: "Varela Round", sans-serif;
   font-size: 20px;
 }
 div.email {
-  background: white;
   display: flex;
+  align-items: center;
+  height: min-content;
+  background: white;
+  border-radius: 10px;
   input {
+    height: 40px;
+    // width: 100px;
+    margin-left: 10px;
     border-radius: 0px;
     &:focus-visible {
+      outline: 0px;
       border-radius: 0px;
     }
   }
   button {
-    background: indigo;
+    width: 130px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 10px;
+    background: #222e3c;
     color: white;
-    padding: 10px 20px;
   }
 }
 </style>
